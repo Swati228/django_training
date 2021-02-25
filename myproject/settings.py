@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 #jo bhi naya app banyege usse yaha dalna hi..
 INSTALLED_APPS = [
+    'cars.apps.CarsConfig',
     'pages.apps.PagesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -38,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ckeditor',
+    'django.contrib.humanize',
+
 ]
 
 MIDDLEWARE = [
@@ -76,8 +80,11 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'mydb',
+        'USER':'postgres',
+        'PASSWORD':'1234',
+        'HOST':'localhost',
     }
 }
 
@@ -128,3 +135,7 @@ STATIC_ROOT = os.path.join(BASE_DIR,'static')
 STATICFILES_DIRS =[
 os.path.join(BASE_DIR,'myproject/static'),
 ]
+
+#media setting
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+MEDIA_URL = '/media/'
