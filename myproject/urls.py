@@ -23,4 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('pages.urls')),
     path('cars/',include('cars.urls')), #add cars app add in url.py of main project its calling cars > url.py
+    path('accounts/',include('accounts.urls')),
+    path('contacts/',include('contacts.urls')),
+    path('socialaccounts/',include('allauth.urls'))
+
 ] + static(settings.MEDIA_URL , document_root = settings.MEDIA_ROOT)
